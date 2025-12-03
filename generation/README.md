@@ -35,15 +35,13 @@ sys	0m0.001s
 
 ### Thought on those result
 
-The prime generation is slow, it depend a lot on how lucky you get.
-Because it start with the generation of nbits number and if you have a prime close to you it will be fast like for the exemple above.
-But if you are far away it can take moore than a few minutes.
+Prime generation is slow and depends heavily on how lucky you get. It starts by generating an nbits-sized number, and if there happens to be a prime nearby, the process is fast, as in the example above. But if the nearest prime is far away, it can take more than a few minutes.
 
-The primality test is probabilistic and for big number it has a probabilty of 4^(-ITERATIOMMAX)
-Which is set to 9 it prime.h. So for huge number around 1 in 262144 prime number generated are not prime.
+The primality test is probabilistic, and for large numbers it has an error probability of 4^(-ITERATIONMAX), which is set to 9 in prime.h.
+So for very large numbers, roughly 1 in 262,144 generated “prime” numbers will actually be composite.
 
-The quality of the code isn't good, it's my first time using openssl/bn.h so a lot of thing aren't exactly great.
+The quality of the code isn’t great; it’s my first time using OpenSSL/bn.h, so a lot of things aren’t implemented as well as they could be.
 
---hex should return an hexadecimal format without capital letter.
+--hex should return a lowercase hexadecimal representation.
 
-There is no documentation on what each function does, how a function work, who need to free what, ect...
+There is no documentation on what each function does, how each function works, who is responsible for freeing memory, etc.
